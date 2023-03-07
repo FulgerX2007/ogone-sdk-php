@@ -1,5 +1,5 @@
 {
-    "name": "ingenico/ogone-sdk-php",
+    "name": "fulgerx2007/ogone-sdk-php",
     "description": "Ingenico SDK for PHP",
     "version": "3.1.0",
     "license": [
@@ -34,7 +34,7 @@
         "monolog/monolog": "*"
     },
     "require-dev" : {
-        "phpunit/phpunit": "^7",
+        "phpunit/phpunit": "^8",
         "symfony/class-loader": "@stable"
     },
     "autoload": {

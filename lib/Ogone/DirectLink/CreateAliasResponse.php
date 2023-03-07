@@ -16,9 +16,9 @@ use Ogone\ShaComposer\ShaComposer;
 class CreateAliasResponse extends AbstractResponse
 {
 
-    const STATUS_OK = 0;
-    const STATUS_NOK = 1;
-    const STATUS_UPDATED = 2;
+    final public const STATUS_OK = 0;
+    final public const STATUS_NOK = 1;
+    final public const STATUS_UPDATED = 2;
 
     /**
      * Checks if the response is valid
@@ -31,7 +31,7 @@ class CreateAliasResponse extends AbstractResponse
 
     public function isSuccessful()
     {
-        return in_array($this->getParam('STATUS'), array(self::STATUS_OK, self::STATUS_UPDATED));
+        return in_array($this->getParam('STATUS'), [self::STATUS_OK, self::STATUS_UPDATED]);
     }
 
     public function getAlias()

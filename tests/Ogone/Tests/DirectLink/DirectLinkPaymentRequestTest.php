@@ -105,10 +105,7 @@ class DirectLinkPaymentRequestTest extends \PHPUnit_Framework_TestCase
 
     public function provideBadParameters()
     {
-        return array(
-            array('setPswd', '12'),
-            array('setUserid', '1'),
-        );
+        return [['setPswd', '12'], ['setUserid', '1']];
     }
 
     /** @return DirectLinkPaymentRequest */

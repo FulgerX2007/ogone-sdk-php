@@ -71,11 +71,7 @@ class DirectLinkQueryResponseTest extends \PHPUnit_Framework_TestCase
 
     public function provideFloats()
     {
-        return array(
-            array('17.89', 1789),
-            array('65.35', 6535),
-            array('12.99', 1299),
-        );
+        return [['17.89', 1789], ['65.35', 6535], ['12.99', 1299]];
     }
 
     /**
@@ -107,7 +103,7 @@ class DirectLinkQueryResponseTest extends \PHPUnit_Framework_TestCase
                 ACCEPTANCE="test123"
                 STATUS="91"
                 ECI="7"
-                AMOUNT="'.(($amount) ? $amount : '4.5').'"
+                AMOUNT="'.($amount ?: '4.5').'"
                 CURRENCY="GBP"
                 PM="CreditCard"
                 BRAND="VISA"

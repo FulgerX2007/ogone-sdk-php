@@ -73,12 +73,7 @@ class DirectLinkMaintenanceRequestTest extends \PHPUnit_Framework_TestCase
 
     public function provideBadParameters()
     {
-        return array(
-            array('setPassword', '12'),
-            array('setUserid', '1'),
-            array('setAmount', '232'),
-            array('setAmount', 2.32),
-        );
+        return [['setPassword', '12'], ['setUserid', '1'], ['setAmount', '232'], ['setAmount', 2.32]];
     }
 
     /** @return DirectLinkMaintenanceRequest */

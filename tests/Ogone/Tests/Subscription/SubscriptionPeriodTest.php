@@ -58,7 +58,7 @@ class SubscriptionPeriodTest extends \PHPUnit_Framework_TestCase
     public function IntervalMustNotBeTooBig()
     {
         $this->setExpectedException('InvalidArgumentException');
-        $this->createPeriod(SubscriptionPeriod::UNIT_DAILY, 150000000000000000);
+        $this->createPeriod(SubscriptionPeriod::UNIT_DAILY, 150_000_000_000_000_000);
     }
 
     /**
@@ -89,7 +89,7 @@ class SubscriptionPeriodTest extends \PHPUnit_Framework_TestCase
     public function MomentMustNotBeTooBig()
     {
         $this->setExpectedException('InvalidArgumentException');
-        $this->createPeriod(SubscriptionPeriod::UNIT_DAILY, 12, 150000000000000000);
+        $this->createPeriod(SubscriptionPeriod::UNIT_DAILY, 12, 150_000_000_000_000_000);
     }
 
     /**
@@ -114,29 +114,17 @@ class SubscriptionPeriodTest extends \PHPUnit_Framework_TestCase
 
     public function unitProvider()
     {
-        return array(
-            array(SubscriptionPeriod::UNIT_DAILY),
-            array(SubscriptionPeriod::UNIT_WEEKLY),
-            array(SubscriptionPeriod::UNIT_MONTHLY)
-        );
+        return [[SubscriptionPeriod::UNIT_DAILY], [SubscriptionPeriod::UNIT_WEEKLY], [SubscriptionPeriod::UNIT_MONTHLY]];
     }
 
     public function intProvider()
     {
-        return array(
-            array(1),
-            array(5),
-            array(32),
-            array(123546)
-        );
+        return [[1], [5], [32], [123546]];
     }
 
     public function badUnitMomentComboProvider()
     {
-        return array(
-            array(SubscriptionPeriod::UNIT_WEEKLY, 8),
-            array(SubscriptionPeriod::UNIT_MONTHLY, 29)
-        );
+        return [[SubscriptionPeriod::UNIT_WEEKLY, 8], [SubscriptionPeriod::UNIT_MONTHLY, 29]];
     }
 
     protected function createPeriod($unit = SubscriptionPeriod::UNIT_DAILY, $interval = 12, $moment = 6)

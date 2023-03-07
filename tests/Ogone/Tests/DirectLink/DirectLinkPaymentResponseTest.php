@@ -76,11 +76,7 @@ class DirectLinkPaymentResponseTest extends \PHPUnit_Framework_TestCase
 
     public function provideFloats()
     {
-        return array(
-            array('17.89', 1789),
-            array('65.35', 6535),
-            array('12.99', 1299),
-        );
+        return [['17.89', 1789], ['65.35', 6535], ['12.99', 1299]];
     }
 
     /**
@@ -110,7 +106,7 @@ class DirectLinkPaymentResponseTest extends \PHPUnit_Framework_TestCase
                 NCERROR=""
                 ACCEPTANCE=""
                 STATUS="5"
-                AMOUNT="'.(($amount) ? $amount : '1').'"
+                AMOUNT="'.($amount ?: '1').'"
                 CURRENCY="EUR"
                 PM=""
                 BRAND=""

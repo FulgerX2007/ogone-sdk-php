@@ -18,10 +18,10 @@ use Ogone\ShaComposer\LegacyShaComposer;
 
 class LegacyShaComposerTest extends \PHPUnit_Framework_TestCase
 {
-    const PASSPHRASE = 'passphrase-set-in-ogone-interface';
-    const SHA1STRING = '66BF34D8B3EF2136E0C267BDBC1F708B8D75A8AA';
-    const SHA256STRING = '882D85FCCC6112A33D3B8A571C11723CAA6B642EED70843B35B15ABA0C2AD637';
-    const SHA512STRING = '8552200DD108CB5633A27D6D0A1FAB54378CB2385BFCEB27487992D16F5A7565E5DD4D38C0F2DB294213CD02E434F311021749E6DAB187357F786E3F199781CA';
+    final public const PASSPHRASE = 'passphrase-set-in-ogone-interface';
+    final public const SHA1STRING = '66BF34D8B3EF2136E0C267BDBC1F708B8D75A8AA';
+    final public const SHA256STRING = '882D85FCCC6112A33D3B8A571C11723CAA6B642EED70843B35B15ABA0C2AD637';
+    final public const SHA512STRING = '8552200DD108CB5633A27D6D0A1FAB54378CB2385BFCEB27487992D16F5A7565E5DD4D38C0F2DB294213CD02E434F311021749E6DAB187357F786E3F199781CA';
 
     /** @test */
     public function defaultParameters()
@@ -67,21 +67,6 @@ class LegacyShaComposerTest extends \PHPUnit_Framework_TestCase
 
     private function provideRequest()
     {
-        return array(
-            'ACCEPTANCE' => 'test123',
-            'AMOUNT' => '19.08',
-            'BRAND' => 'VISA',
-            'CARDNO' => 'XXXXXXXXXXXX1111',
-            'CN' => 'Marlon',
-            'CURRENCY' => 'EUR',
-            'ED' => '0113',
-            'IP' => '81.82.214.142',
-            'NCERROR' => 0,
-            'ORDERID' => 2101947639,
-            'PAYID' => 10673859,
-            'PM' => 'CreditCard',
-            'STATUS' => PaymentResponse::STATUS_AUTHORISED,
-            'TRXDATE' => '07/05/11'
-        );
+        return ['ACCEPTANCE' => 'test123', 'AMOUNT' => '19.08', 'BRAND' => 'VISA', 'CARDNO' => 'XXXXXXXXXXXX1111', 'CN' => 'Marlon', 'CURRENCY' => 'EUR', 'ED' => '0113', 'IP' => '81.82.214.142', 'NCERROR' => 0, 'ORDERID' => 2_101_947_639, 'PAYID' => 10_673_859, 'PM' => 'CreditCard', 'STATUS' => PaymentResponse::STATUS_AUTHORISED, 'TRXDATE' => '07/05/11'];
     }
 }

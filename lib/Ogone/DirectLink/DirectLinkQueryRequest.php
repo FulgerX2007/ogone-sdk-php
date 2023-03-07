@@ -11,8 +11,8 @@ use Ogone\ShaComposer\ShaComposer;
 class DirectLinkQueryRequest extends AbstractDirectLinkRequest
 {
 
-    const TEST = "https://secure.ogone.com/ncol/test/querydirect_utf8.asp";
-    const PRODUCTION = "https://secure.ogone.com/ncol/prod/querydirect_utf8.asp";
+    final public const TEST = "https://secure.ogone.com/ncol/test/querydirect_utf8.asp";
+    final public const PRODUCTION = "https://secure.ogone.com/ncol/prod/querydirect_utf8.asp";
 
     public function __construct(ShaComposer $shaComposer)
     {
@@ -27,11 +27,7 @@ class DirectLinkQueryRequest extends AbstractDirectLinkRequest
 
     public function getRequiredFields()
     {
-        return array(
-            'pspid',
-            'userid',
-            'pswd',
-        );
+        return ['pspid', 'userid', 'pswd'];
     }
 
     public function validate()

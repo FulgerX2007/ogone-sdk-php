@@ -17,8 +17,8 @@ use InvalidArgumentException;
 class DirectLinkPaymentRequest extends AbstractPaymentRequest
 {
 
-    const TEST = "https://secure.ogone.com/ncol/test/orderdirect_utf8.asp";
-    const PRODUCTION = "https://secure.ogone.com/ncol/prod/orderdirect_utf8.asp";
+    final public const TEST = "https://secure.ogone.com/ncol/test/orderdirect_utf8.asp";
+    final public const PRODUCTION = "https://secure.ogone.com/ncol/prod/orderdirect_utf8.asp";
 
     public function __construct(ShaComposer $shaComposer)
     {
@@ -28,9 +28,7 @@ class DirectLinkPaymentRequest extends AbstractPaymentRequest
 
     public function getRequiredFields()
     {
-        return array(
-            'pspid', 'currency', 'amount', 'orderid', 'userid', 'pswd'
-        );
+        return ['pspid', 'currency', 'amount', 'orderid', 'userid', 'pswd'];
     }
 
     /**
@@ -41,7 +39,7 @@ class DirectLinkPaymentRequest extends AbstractPaymentRequest
      */
     public function setUserId($userid)
     {
-        if (strlen($userid) < 2) {
+        if (strlen((string) $userid) < 2) {
             throw new InvalidArgumentException("User ID is too short");
         }
         $this->parameters['userid'] = $userid;
@@ -68,7 +66,7 @@ class DirectLinkPaymentRequest extends AbstractPaymentRequest
      */
     public function setPswd($password)
     {
-        if (strlen($password) < 8) {
+        if (strlen((string) $password) < 8) {
             throw new InvalidArgumentException("Password is too short");
         }
         $this->parameters['pswd'] = $password;
@@ -79,7 +77,6 @@ class DirectLinkPaymentRequest extends AbstractPaymentRequest
     /**
      * Set Alias.
      *
-     * @param Alias $alias
      * @return $this
      */
     public function setAlias(Alias $alias)
@@ -93,7 +90,6 @@ class DirectLinkPaymentRequest extends AbstractPaymentRequest
     /**
      * Set ECI.
      *
-     * @param Eci $eci
      * @return $this
      */
     public function setEci(Eci $eci)
@@ -131,11 +127,6 @@ class DirectLinkPaymentRequest extends AbstractPaymentRequest
 
     protected function getValidOperations()
     {
-        return array(
-            PaymentOperation::REQUEST_FOR_AUTHORISATION,
-            PaymentOperation::REQUEST_FOR_DIRECT_SALE,
-            PaymentOperation::REFUND,
-            PaymentOperation::REQUEST_FOR_PRE_AUTHORISATION,
-        );
+        return [PaymentOperation::REQUEST_FOR_AUTHORISATION, PaymentOperation::REQUEST_FOR_DIRECT_SALE, PaymentOperation::REFUND, PaymentOperation::REQUEST_FOR_PRE_AUTHORISATION];
     }
 }

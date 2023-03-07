@@ -68,7 +68,7 @@ class OgoneTest extends \PHPUnit_Framework_TestCase
         $directLinkRequest->setOperation(new PaymentOperation(PaymentOperation::REQUEST_FOR_DIRECT_SALE));
         $directLinkRequest->validate();
 
-        $body = array();
+        $body = [];
         foreach ($directLinkRequest->toArray() as $key => $value) {
             $body[strtoupper($key)] = $value;
         }
@@ -138,7 +138,7 @@ class OgoneTest extends \PHPUnit_Framework_TestCase
 
         $createAliasRequest->validate();
 
-        $body = array();
+        $body = [];
         foreach ($createAliasRequest->toArray() as $key => $value) {
             $body[strtoupper($key)] = $value;
         }
@@ -153,8 +153,8 @@ class OgoneTest extends \PHPUnit_Framework_TestCase
         $request = $client->post(null, null, $body);
         $response = $request->send();
 
-        $url = parse_url($response->getInfo('url'));
-        $params = array();
+        $url = parse_url((string) $response->getInfo('url'));
+        $params = [];
         parse_str($url['query'], $params);
 
         /*

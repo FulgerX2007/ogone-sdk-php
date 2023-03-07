@@ -62,10 +62,7 @@ class DirectLinkQueryRequestTest extends \PHPUnit_Framework_TestCase
 
     public function provideBadParameters()
     {
-        return array(
-            array('setPassword', '12'),
-            array('setUserid', '1'),
-        );
+        return [['setPassword', '12'], ['setUserid', '1']];
     }
 
     /** @return DirectLinkQueryRequest */

@@ -2,12 +2,12 @@
 namespace Ogone\DirectLink;
 
 
-class PaymentOperation
+class PaymentOperation implements \Stringable
 {
-    const REQUEST_FOR_AUTHORISATION = 'RES';
-    const REQUEST_FOR_DIRECT_SALE = 'SAL';
-    const REFUND = 'RFD';
-    const REQUEST_FOR_PRE_AUTHORISATION = 'PAU';
+    final public const REQUEST_FOR_AUTHORISATION = 'RES';
+    final public const REQUEST_FOR_DIRECT_SALE = 'SAL';
+    final public const REFUND = 'RFD';
+    final public const REQUEST_FOR_PRE_AUTHORISATION = 'PAU';
 
     protected $operation;
 
@@ -25,18 +25,13 @@ class PaymentOperation
         return $this->operation === $other->operation;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return (string) $this->operation;
     }
 
     public function getAllAvailableOperations()
     {
-        return array(
-            self::REQUEST_FOR_AUTHORISATION,
-            self::REQUEST_FOR_DIRECT_SALE,
-            self::REFUND,
-            self::REQUEST_FOR_PRE_AUTHORISATION
-        );
+        return [self::REQUEST_FOR_AUTHORISATION, self::REQUEST_FOR_DIRECT_SALE, self::REFUND, self::REQUEST_FOR_PRE_AUTHORISATION];
     }
 } 
